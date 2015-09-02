@@ -25,6 +25,7 @@ gem 'upmin-admin'
 gem 'twilio-ruby'
 gem 'delayed_job_active_record'
 gem 'daemons'
+
 group :development do
   gem 'better_errors'
   gem 'hub', :require=>nil
