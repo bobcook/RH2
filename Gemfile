@@ -22,12 +22,14 @@ gem 'puma'
 gem 'pundit'
 gem 'simple_form'
 gem 'upmin-admin'
+gem 'twilio-ruby'
 group :development do
   gem 'better_errors'
   gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
+  gem 'pry-rails'
 end
 group :development, :test do
   gem 'factory_girl_rails'
