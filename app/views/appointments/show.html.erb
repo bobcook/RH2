@@ -17,7 +17,7 @@
 
 <p>
   <strong>Time Now:</strong>
-  <%= Time.now %>
+  <%= Time.zone.now %>
 </p>
 
 <%= link_to 'Edit', edit_appointment_path(@appointment) %> |
