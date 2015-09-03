@@ -15,5 +15,10 @@
   <%= @appointment.time %>
 </p>
 
+<p>
+  <strong>Time Now:</strong>
+  <%= Time.now %>
+</p>
+
 <%= link_to 'Edit', edit_appointment_path(@appointment) %> |
 <%= link_to 'Back', appointments_path %>

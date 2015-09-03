@@ -9,6 +9,8 @@ Bundler.require(*Rails.groups)
 module RH2
   class Application < Rails::Application
 
+    config.time_zone = 'Mountain Time (US & Canada)'
+
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
