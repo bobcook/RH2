@@ -10,7 +10,7 @@ puts 'CREATED ADMIN USER: ' << user.email
 
 require 'csv'
 
-csv_text = File.read('/Users/MacBookPro/projects/RH2/db/rh2members.csv')
+csv_text = File.read('~/db/rh2members.csv')
 csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
   Member.create!(row.to_hash)
