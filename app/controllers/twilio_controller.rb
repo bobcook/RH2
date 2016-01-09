@@ -15,4 +15,13 @@ class TwilioController < ApplicationController
 
   	render_twiml response
   end
+
+  def sms
+    response = Twilio::TwiML::Response.new do |r|
+  end
+
+  def call
+  end
+
+end
 end
