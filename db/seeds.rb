@@ -5,12 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-user = CreateAdminService.new.call
-puts 'CREATED ADMIN USER: ' << user.email
 
 require 'csv'
 
-csv_text = File.read('~/db/rh2members.csv')
+csv_text = File.read('~/RH2/db/rh2members.csv')
 csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
   Member.create!(row.to_hash)
