@@ -5,7 +5,7 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    @members = Member.all
+    @members = Member.includes(:prayers).order('prayers.date desc')
   end
 
   # GET /members/1
@@ -60,6 +60,12 @@ class MembersController < ApplicationController
       format.html { redirect_to members_url, notice: 'Member was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  helper_method :prayable
+
+  def prayable
+    @prayable = Member.includes(:prayers).order('prayers.date desc')
   end
 
   private

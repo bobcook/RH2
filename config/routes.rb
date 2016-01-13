@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/members/prayable' => 'members#prayable'
   resources :prayers
   resources :members
   resources :hohhs
