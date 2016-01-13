@@ -2,7 +2,7 @@
   <div class="row">
     <p id="notice"><%= notice %></p>
 
-      <h3>Listing Members</h3>
+      <h3>Listing Members Prayers</h3>
       <div class="column">
         <table class="table">
 
@@ -19,7 +19,7 @@
           </thead>
 
           <tbody>
-            <% @members.each do |member| %>
+            <% @prayable.each do |member| %>
               <tr>
                 <td><%= member.name %></td>
                 <td><%= member.gender %></td>
