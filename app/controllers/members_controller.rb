@@ -5,7 +5,7 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    @members = Member.includes(:prayers).order('prayers.date asc')
+    @members = Member.includes(:prayers).order('prayers.date desc')
   end
 
   # GET /members/1
