@@ -5,7 +5,7 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    @members = Member.includes(:prayers).order('prayers.date desc')
+    @members = Member.all
   end
 
   # GET /members/1
@@ -65,10 +65,12 @@ class MembersController < ApplicationController
   helper_method :prayable
 
   def prayable
-    @prayable = Member.includes(:prayers).order('prayers.date desc')
+    @members = Member.all
+    @prayable = @members.find_all { |p| p.birth_date < (Date.today - 7000) }
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_member
       @member = Member.find(params[:id])
