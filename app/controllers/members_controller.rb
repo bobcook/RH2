@@ -65,8 +65,9 @@ class MembersController < ApplicationController
   helper_method :prayable
 
   def prayable
-    @members = Member.all_ordered_by_prayer
-    @prayable = @members.find_all { |p| p.birth_date < (Date.today - 7000) }
+    @members = Member.all
+    @prayable = @members.find_all { |p| p.birth_date < (Date.today - 7500) }
+    @prayable = @prayable#prayers.last
   end
 
   private
