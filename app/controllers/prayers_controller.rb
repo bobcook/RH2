@@ -5,7 +5,7 @@ class PrayersController < ApplicationController
   # GET /prayers
   # GET /prayers.json
   def index
-    @prayers = Prayer.order( "date ASC" ).all
+    @prayers = Prayer.all
   end
 
   # GET /prayers/1
