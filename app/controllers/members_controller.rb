@@ -66,8 +66,9 @@ class MembersController < ApplicationController
 
   def prayable
     @members = Member.all
-    @prayable = @members.find_all { |p| p.birth_date < (Date.today - 7500) }
-    @prayable = @prayable#prayers.last
+    @adults = @members.find_all { |p| p.birth_date < (Date.today - 7500) }
+    parts = @adults.partition { |o| o.prayers.blank? }
+    @prayable = parts.last.sort_by { |p| p.prayers.last } + parts.first
   end
 
   private
