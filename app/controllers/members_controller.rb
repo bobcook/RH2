@@ -68,7 +68,7 @@ class MembersController < ApplicationController
     @members = Member.all
     @adults = @members.find_all { |p| p.birth_date < (Date.today - 7500) }
     parts = @adults.partition { |o| o.prayers.blank? }
-    @prayable = parts.last.sort_by { |p| p.prayers.first } + parts.first
+    @prayable = parts.last.sort_by { |p| p.prayers.pluck(:date) } + parts.first
     return @prayable
   end
 
