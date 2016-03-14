@@ -5,7 +5,7 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-
+ENV['RANSACK_FORM_BUILDER'] = '::SimpleForm::FormBuilder'
 module RH2
   class Application < Rails::Application
 

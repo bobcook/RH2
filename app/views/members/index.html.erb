@@ -8,13 +8,12 @@
 
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Gender</th>
-              <th>Birth date</th>
-              <th>Phone number</th>
-              <th>Email</th>
-              <th>Prayer</th>
-              <th colspan="3"></th>
+                <th><%= sort_link(@q, :name, 'Name') %></th>
+                <th><%= sort_link(@q, :gender, 'Gender') %></th>
+                <th><%= sort_link(@q, :birth_date, 'Birth Date') %></th>
+                <th>Phone Number</th>
+                <th>email</th>
+                <th>Prayer</th>
             </tr>
           </thead>
 
