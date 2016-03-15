@@ -5,8 +5,8 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    @q = Member.ransack(params[:q])
-    @members = @q.result.includes(:prayers)
+    @search = Member.ransack(params[:q])
+    @members = @search.result.includes(:prayers)
   end
 
   # GET /members/1
