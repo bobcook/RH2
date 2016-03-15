@@ -21,6 +21,7 @@ class MembersController < ApplicationController
 
   # GET /members/1/edit
   def edit
+    @member = @member ||= Member.find(params[:id])
   end
 
   # POST /members
