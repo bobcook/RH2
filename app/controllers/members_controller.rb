@@ -7,6 +7,7 @@ class MembersController < ApplicationController
   def index
     @search = Member.ransack(params[:q])
     @members = @search.result.includes(:prayers)
+    @members.order(:name)
   end
 
   # GET /members/1
