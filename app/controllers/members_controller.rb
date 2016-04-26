@@ -6,7 +6,7 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     @search = Member.ransack(params[:q])
-    @members = @search.result.includes(:prayers)
+    @members = @search.result.includes(:prayers, :speakers)
     @members.order(:name)
   end
 
@@ -65,7 +65,7 @@ class MembersController < ApplicationController
     end
   end
 
-  helper_method :prayable
+  helper_method :prayable, :speakable
 
   def prayable
     @members = Member.all
@@ -73,6 +73,14 @@ class MembersController < ApplicationController
     parts = @adults.partition { |o| o.prayers.blank? }
     @prayable = parts.last.sort_by { |p| p.prayers.pluck(:date) } + parts.first.sort_by { |p| p.prayers.pluck(:member_id) }
     return @prayable
+  end
+  
+  def speakable
+    @members = Member.all
+    @adults = @members.find_all { |p| p.birth_date < (Date.today - 4400) }
+    parts = @adults.partition { |o| o.speakers.blank? }
+    @speakable = parts.last.sort_by { |p| p.speakers.pluck(:date) } + parts.first.sort_by { |p| p.speakers.pluck(:member_id) }
+    return @speakable
   end
 
   private

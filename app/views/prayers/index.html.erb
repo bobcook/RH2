@@ -4,30 +4,30 @@
 
     <h3>Listing Prayers</h3>
       <div class="column">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th><%= sort_link(@search, :date, 'Date') %></th>
-                <th><%= 'Name' %></th>
-                <th colspan="3"></th>
-              </tr>
-            </thead>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th><%= sort_link(@search, :date, 'Date') %></th>
+            <th><%= 'Name' %></th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-            <tbody>
-              <% @prayers.each do |prayer| %>
-                <tr>
-                  <td><%= prayer.date %></td>
-                  <td><%= prayer.member.name %></td>
-                  <td><%= link_to 'Show', prayer, :class => 'button-xs' %></td>
-                  <td><%= link_to 'Edit', edit_prayer_path(prayer), :class => 'button-xs' %></td>
-                  <td><%= link_to 'Destroy', prayer, :class => 'button-xs', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
+        <tbody>
+          <% @prayers.each do |prayer| %>
+            <tr>
+              <td><%= prayer.date %></td>
+              <td><%= prayer.member.name %></td>
+              <td><%= link_to 'Show', prayer, :class => 'button-xs' %></td>
+              <td><%= link_to 'Edit', edit_prayer_path(prayer), :class => 'button-xs' %></td>
+              <td><%= link_to 'Destroy', prayer, :class => 'button-xs', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
+  </div>
+</div>
 
 <br>
 

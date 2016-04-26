@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/members/speakable' => 'members#speakable'
+  resources :speakers
   get '/members/prayable' => 'members#prayable'
   resources :prayers
   resources :members
