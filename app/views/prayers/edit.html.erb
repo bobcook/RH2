@@ -1,6 +1,8 @@
-<h1>Editing Prayer</h1>
+<div class="container">
+  <h1>Editing Prayer</h1>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to 'Show', @prayer %> |
-<%= link_to 'Back', prayers_path %>
+  <%= link_to 'Show', @prayer, :class => 'button-xs' %> |
+  <%= link_to 'Back', prayers_path, :class => 'button-xs' %>
+</div>

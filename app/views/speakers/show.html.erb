@@ -1,14 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @speaker.date %>
-</p>
+    <p>
+      <strong>Date:</strong>
+      <%= @speaker.date %>
+    </p>
 
-<p>
-  <strong>Member:</strong>
-  <%= @speaker.member %>
-</p>
+    <p>
+      <strong>Member:</strong>
+      <%= @speaker.member %>
+    </p>
 
-<%= link_to 'Edit', edit_speaker_path(@speaker) %> |
-<%= link_to 'Back', speakers_path %>
+    <%= link_to 'Edit', edit_speaker_path(@speaker) %> |
+    <%= link_to 'Back', speakers_path %>
+  </div>
+</div>
