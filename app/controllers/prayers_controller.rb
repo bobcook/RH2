@@ -7,7 +7,7 @@ class PrayersController < ApplicationController
   def index
     @search = Prayer.search(params[:q])
     @prayers = @search.result
-    @prayers.order(:name)
+    @prayers.order(:date)
   end
 
   # GET /prayers/1

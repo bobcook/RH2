@@ -1,10 +1,11 @@
+require 'faker'
+
 FactoryGirl.define do
   factory :member do
-    name "MyString"
-gender "MyString"
-birth_date "2016-01-07"
-phone_number "MyString"
-email "MyString"
+    name { Faker::Name.name }
+    gender 'male'
+    birth_date Faker::Date.between(70.years.ago, 20.years.ago)
+    phone_number Faker::PhoneNumber
+    email Faker::Internet.email
   end
-
 end

@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :speaker do
-    date "2016-04-24"
-member nil
+    date Faker::Date.between(70.day.ago, 5.days.ago)
+    member
   end
 
 end

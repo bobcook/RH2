@@ -10,3 +10,11 @@
 <td>
   <%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button-xs') unless user == current_user %>
 </td>
+
+<h3 class='extra-margin-bottom>Invite User</h3>
+
+<%= simple_form_for(User.new, url: user_invitation_path,
+                       html: { class: 'form-inline' }) do |f| %>
+  <%= f.input :email, placeholder: 'email', label: false %>
+  <%= f.button :submit, 'Invite User', class: 'btn-primary' %>
+<% end %>
