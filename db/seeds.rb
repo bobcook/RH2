@@ -8,8 +8,24 @@
 
 require 'csv'
 
-csv_text = File.read('db/rh2members.csv')
+csv_text = File.read('members.csv')
 csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
-  Member.create!(row.to_hash)
+  member_record = row.to_hash
+  db_record = Member.where(name: member_record['name'])
+  if db_record == []
+    Member.create(member_record)
+  else
+    Member.update(db_record, current: true)
+  end
+end
+
+@members = Member.all
+@members.each do |x|
+  if x.updated_at < Date.today
+    x.current = false
+  else
+    x.current = true
+  end
+  x.save
 end

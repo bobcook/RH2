@@ -74,7 +74,7 @@ class MembersController < ApplicationController
     @prayable = parts.last.sort_by { |p| p.prayers.pluck(:date) } + parts.first.sort_by { |p| p.prayers.pluck(:member_id) }
     return @prayable
   end
-  
+
   def speakable
     @members = Member.all
     @adults = @members.find_all { |p| p.birth_date < (Date.today - 4400) }
@@ -92,6 +92,6 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:name, :gender, :birth_date, :phone_number, :email)
+      params.require(:member).permit(:name, :gender, :birth_date, :phone_number, :email, :current)
     end
 end
