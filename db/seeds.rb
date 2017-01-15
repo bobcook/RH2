@@ -17,7 +17,7 @@ csv.each do |row|
   if db_record == []
     Member.create(member_record)
   else
-    Member.update(db_record, birth_date: member_record['birth_date'])
+    Member.update(db_record, current: true)
   end
 end
 
