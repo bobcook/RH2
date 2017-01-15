@@ -12,6 +12,7 @@ csv_text = File.read('members.csv')
 csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
   member_record = row.to_hash
+  member_record['birth_date'] = member_record['birth_date'].to_date
   db_record = Member.where(name: member_record['name'])
   if db_record == []
     Member.create(member_record)
