@@ -14,6 +14,8 @@
                 <th>Phone Number</th>
                 <th>email</th>
                 <th>Prayer</th>
+                <th>Speak</th>
+                <th><%= sort_link(@search, :current, 'Current') %></th>
             </tr>
           </thead>
 
@@ -26,6 +28,8 @@
                 <td><%= member.phone_number %></td>
                 <td><%= member.email %></td>
                 <td><%= member.prayers.count %></td>
+                <td><%= member.speakers.count %></td>
+                <td><%= member.current %></td>
                 <td><%= link_to 'Show ', member, :class => 'button-xs' %></td>
                 <td><%= link_to 'Edit ', edit_member_path(member), :class => 'button-xs' %></td>
                 <td><%= link_to 'Destroy', member, method: :delete, :class => 'button-xs', data: { confirm: 'Are you sure?' } %></td>
