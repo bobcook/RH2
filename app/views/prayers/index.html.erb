@@ -17,7 +17,7 @@
         <tbody>
           <% @prayers.each do |prayer| %>
             <tr>
-              <td><%= prayer.date %></td>
+              <td><%= prayer.date.sort %></td>
               <td><%= prayer.member.name %></td>
               <td><%= link_to 'Show', prayer, :class => 'button-xs' %></td>
               <td><%= link_to 'Edit', edit_prayer_path(prayer), :class => 'button-xs' %></td>

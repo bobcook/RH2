@@ -68,7 +68,7 @@ class MembersController < ApplicationController
   helper_method :prayable, :speakable
 
   def prayable
-    @members = Member.all
+    @members = Member.where(current: true)
     @adults = @members.find_all { |p| p.birth_date < (Date.today - 7500) }
     parts = @adults.partition { |o| o.prayers.blank? }
     @prayable = parts.last.sort_by { |p| p.prayers.pluck(:date) } + parts.first.sort_by { |p| p.prayers.pluck(:member_id) }
@@ -76,7 +76,7 @@ class MembersController < ApplicationController
   end
 
   def speakable
-    @members = Member.all
+    @members = Member.where(current: true)
     @adults = @members.find_all { |p| p.birth_date < (Date.today - 4400) }
     parts = @adults.partition { |o| o.speakers.blank? }
     @speakable = parts.last.sort_by { |p| p.speakers.pluck(:date) } + parts.first.sort_by { |p| p.speakers.pluck(:member_id) }
