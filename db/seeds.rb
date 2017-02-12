@@ -19,7 +19,7 @@ end
 
 @members = Member.all
 @members.each do |x|
-  if x.updated_at < Date.today
+  if x.updated_at.to_date < Date.today
     x.update(current: false)
   else
     x.update(current: true)
