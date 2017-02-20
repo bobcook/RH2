@@ -41,6 +41,6 @@
     </div>
   </div>
 
-  Total Members <%= Member.count %><br><br>
+  Total Members <%= Member.where(current: true).count %><br><br>
 
 <%= link_to 'New Member', new_member_path, :class => 'button-xs' %>

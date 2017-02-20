@@ -68,7 +68,7 @@ class MembersController < ApplicationController
   helper_method :prayable, :speakable
 
   def prayable
-    @members = Member.where(current: true)
+    @members = Member.where(current: true, exempt: false)
     @adults = @members.find_all { |p| p.birth_date < (Date.today - 7500) }
     parts = @adults.partition { |o| o.prayers.blank? }
     @prayable = parts.last.sort_by { |p| p.prayers.pluck(:date) } + parts.first.sort_by { |p| p.prayers.pluck(:member_id) }
@@ -76,7 +76,7 @@ class MembersController < ApplicationController
   end
 
   def speakable
-    @members = Member.where(current: true)
+    @members = Member.where(current: true, exempt: false)
     @adults = @members.find_all { |p| p.birth_date < (Date.today - 4400) }
     parts = @adults.partition { |o| o.speakers.blank? }
     @speakable = parts.last.sort_by { |p| p.speakers.pluck(:date) } + parts.first.sort_by { |p| p.speakers.pluck(:member_id) }
@@ -92,6 +92,6 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:name, :gender, :birth_date, :phone_number, :email, :current, :updated_at)
+      params.require(:member).permit(:name, :gender, :birth_date, :phone_number, :email, :current, :exempt)
     end
 end
