@@ -16,7 +16,6 @@ csv.each do |row|
                      birth_date: member_record['birth_date'],
                      phone_number: member_record['phone_number'],
                      email: member_record['email'],
-                     current: true,
-                     exempt: false)
+                     current: true)
   end
 end
